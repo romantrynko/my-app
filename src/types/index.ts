@@ -1,26 +1,26 @@
 export interface IExcercise {
-  id: Number;
-  titile: String;
-  description: String;
-  duration: Number;
-  photo: String;
-  video: String;
+  id: number;
+  title: string;
+  description: string;
+  duration: number;
+  photo: string;
+  video: string;
 }
 
 export interface IMusclegroup {
-  name: String;
-  photo: String;
+  name: string;
+  photo: string;
 }
 
 export interface IQuestion {
-  title: String;
+  title: string;
   exercises: IExcercise[];
   muscle_group: IMusclegroup;
 }
 
 export interface IWorkout {
-  name: String;
-  slug: String;
+  name: string;
+  slug: string;
   questions: IQuestion[];
 }
 
