@@ -1,13 +1,12 @@
 import { Box, CircularProgress, Button } from '@mui/material';
-
-import { useTimer } from '@/hooks';
-
-import type { IWorkoutContentProps } from './types';
 import { useState } from 'react';
 
-const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
-  const [currentTiming, setCurrentTiming] = useState(5);
+import useWorkoutContent from './useWorkoutContent';
 
+import type { IExcercise, IQuestion } from '../../types/index';
+import type { IWorkoutContentProps } from './types';
+
+const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
   const {
     counter,
     isPause,
@@ -15,11 +14,10 @@ const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
     stopTimer,
     pauseTimer,
     resumeTimer,
-  } = useTimer(currentTiming);
+    initialCounters,
+  } = useWorkoutContent({ workout });
 
-  console.log(counter);
-
-  const initTiming = (counter / currentTiming) * 100;
+  const initTiming = (counter / initialCounters) * 100;
 
   return (
     <Box>

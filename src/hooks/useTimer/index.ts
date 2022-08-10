@@ -62,6 +62,7 @@ const useTimer = (initDuration?: number) => {
     stopTimer,
     pauseTimer,
     resumeTimer,
+    initialCounters,
   };
 };
 
