@@ -3,8 +3,12 @@ export const styles = {
     display: 'flex',
     flexGrow: 1,
     flexDirection: 'column',
+    alignItems: 'center',
     mx: {
-      lg: 'auto',
+      md: 'auto',
+    },
+    maxWidth: {
+      md: '800px',
     },
   },
 };

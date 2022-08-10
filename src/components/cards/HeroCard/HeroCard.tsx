@@ -1,13 +1,20 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 
 import styles from './styles';
 
-const HeroCard = () => {
+import type { IHeroCardProps } from './types';
+
+const HeroCard = ({ photo, caption, title, subtitle }: IHeroCardProps) => {
   return (
     <Box sx={styles.card}>
       <Box sx={styles.imageWrapper}>
-        <Image src="/assets/image/image.png" height={211} width={375} alt="image" />
+        <Image priority src={photo} layout="fill" alt="image" />
+      </Box>
+      <Box sx={styles.cardBody}>
+        <Typography sx={styles.caption}>{caption}</Typography>
+        <Typography sx={styles.title}>{title}</Typography>
+        <Typography sx={styles.caption}>{subtitle}</Typography>
       </Box>
     </Box>
   );

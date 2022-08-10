@@ -10,7 +10,12 @@ const Home = () => {
 
   return (
     <Box component="main" sx={styles.root}>
-      <HeroCard />
+      <HeroCard
+        photo={'/assets/image/image.png'}
+        title={'Morning Flexibility Routine'}
+        subtitle={'Easy • 15 min • No equipment '}
+        caption={'Day 1'}
+      />
     </Box>
   );
 };
