@@ -1,14 +1,17 @@
 import { Box, Button } from '@mui/material';
+import { useRouter } from 'next/router';
 
 import { HeroCard } from '@/components';
 import ExerciseList from '@/components/lists/ExerciseList';
 
 import styles from './styles';
-import useHome from './useHome';
 
-const Home = () => {
-  const { questions } = useHome();
-  console.log(questions);
+import type { IHomeProps } from './types';
+
+const Home = ({ workout }: IHomeProps) => {
+  const { questions } = workout;
+
+  const router = useRouter();
 
   return (
     <Box component="main" sx={styles.root}>
@@ -21,7 +24,7 @@ const Home = () => {
       {questions?.map((question, index) => (
         <ExerciseList question={question} key={index} />
       ))}
-      <Button variant="contained" sx={styles.btn}>
+      <Button variant="contained" sx={styles.btn} onClick={() => router.push(workout.slug)}>
         Start Workout
       </Button>
     </Box>
