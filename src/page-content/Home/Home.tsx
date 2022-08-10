@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 
 import { HeroCard } from '@/components';
 import ExerciseList from '@/components/lists/ExerciseList';
@@ -21,6 +21,9 @@ const Home = () => {
       {questions?.map((question, index) => (
         <ExerciseList question={question} key={index} />
       ))}
+      <Button variant="contained" sx={styles.btn}>
+        Start Workout
+      </Button>
     </Box>
   );
 };
