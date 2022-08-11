@@ -36,7 +36,7 @@ export default function WorkoutComponent({
       <Box sx={styles.footer}>
         <IconButton
           sx={styles.btnStart}
-          // onClick={isPause ? resumeTimer : pauseTimer}
+          onClick={isPause ? resumeTimer : pauseTimer}
         >
           <PlayArrow />
         </IconButton>
