@@ -1,9 +1,13 @@
-import { Box, CircularProgress, Button } from '@mui/material';
-import { useState } from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import Image from 'next/image';
 
+import { ExerciseCard } from '@/components';
+import ProgressBar from '@/components/ProgressBar';
+import WorkoutComponent from '@/components/WorkoutComponent';
+
+import { styles } from './styles';
 import useWorkoutContent from './useWorkoutContent';
 
-import type { IExcercise, IQuestion } from '../../types/index';
 import type { IWorkoutContentProps } from './types';
 
 const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
@@ -15,17 +19,14 @@ const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
     pauseTimer,
     resumeTimer,
     initialCounters,
+    activeExercise,
+    handleNext,
+    handlePrev
   } = useWorkoutContent({ workout });
 
-  const initTiming = (counter / initialCounters) * 100;
-
   return (
-    <Box>
-      <Box>Workout: {counter}</Box>
-      <CircularProgress size={80} color="info" variant="determinate" value={initTiming} />
-      <Button variant="contained" onClick={isPause ? resumeTimer : pauseTimer}>
-        {isPause ? 'Start' : 'Pause'}
-      </Button>
+    <Box sx={styles.root}>
+      <WorkoutComponent activeExercise={activeExercise} handleNext={handleNext} handlePrev={handlePrev}/>
     </Box>
   );
 };

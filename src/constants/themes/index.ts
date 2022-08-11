@@ -65,10 +65,10 @@ export const theme = createTheme({
       fontWeight: 400,
     },
     subtitle1: {
-      fontSize: '1.125rem',
+      fontSize: 24,
       lineHeight: 1.3,
       letterSpacing: 0,
-      fontWeight: 500,
+      fontWeight: 600,
     },
     body1: {
       fontSize: '1rem',
