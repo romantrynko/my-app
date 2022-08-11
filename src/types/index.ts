@@ -5,6 +5,7 @@ export interface IExcercise {
   duration: number;
   photo: string;
   video: string;
+  variant?: 'red' | 'green';
 }
 
 export interface IMusclegroup {

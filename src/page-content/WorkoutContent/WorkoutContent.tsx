@@ -26,7 +26,7 @@ const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
 
   return (
     <Box sx={styles.root}>
-      <WorkoutComponent activeExercise={activeExercise} handleNext={handleNext} handlePrev={handlePrev}/>
+      <WorkoutComponent timer={counter} activeExercise={activeExercise} handleNext={handleNext} handlePrev={handlePrev} resumeTimer={resumeTimer} />
     </Box>
   );
 };

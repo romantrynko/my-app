@@ -9,9 +9,10 @@ const firstStep = {
   id: 0,
   title: 'Get ready',
   duration: 5,
-  photo: '',
+  photo: '/assets/image/image.png',
   description: '',
   video: '',
+  variant: 'green',
 };
 
 const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
@@ -28,23 +29,21 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
     [workout.questions],
   );
 
-  const handlePrev = useCallback(() => {
+  const handleNext = useCallback(() => {
     if (index < exercises.length - 1) {
       setIndex(index + 1);
     }
-    return;
   }, [exercises.length, index]);
 
-  const handleNext = useCallback(() => {
-    if (index > 0) {
+  const handlePrev = useCallback(() => {
+    if (index > 1) {
       setIndex(index - 1);
     }
-    return;
   }, [index]);
 
   const activeExercise = useMemo(() => exercises[index], [exercises, index]);
 
-  const { ...timer } = useTimer(activeExercise?.duration || 5);
+  const { ...timer } = useTimer(activeExercise?.duration || 5);  
 
   return {
     ...timer,

@@ -3,10 +3,11 @@ import { useCallback, useState, useRef, useEffect } from 'react';
 const useTimer = (initDuration?: number) => {
   const initialCounters = initDuration ?? 0;
   const [counter, setCounter] = useState(initialCounters);
+  
   const initial = useRef(initialCounters);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
   const [isPause, setIsPause] = useState(true);
-
+  
   const stopTimer = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -14,19 +15,19 @@ const useTimer = (initDuration?: number) => {
     setCounter(initialCounters);
     setIsPause(true);
   }, [initialCounters]);
-
+  
   const startTimer = useCallback(
     (seconds = initial.current) => {
       intervalRef.current = setInterval(() => {
         const newCounter = --seconds;
         if (newCounter >= 0) {
-          setCounter(newCounter);
+          setCounter(newCounter);          
         } else {
           stopTimer();
         }
       }, 1000);
     },
-    [stopTimer],
+    [stopTimer, initialCounters],
   );
 
   const pauseTimer = useCallback(() => {
@@ -34,7 +35,7 @@ const useTimer = (initDuration?: number) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-  }, []);
+  }, [initialCounters]);
 
   const resumeTimer = useCallback(() => {
     startTimer();
@@ -47,13 +48,13 @@ const useTimer = (initDuration?: number) => {
     }
     setCounter(initial.current);
     startTimer(initial.current - 1);
-  }, [startTimer, stopTimer]);
+  }, [startTimer, stopTimer, initialCounters]);
 
   useEffect(() => {
     return () => {
       stopTimer();
     };
-  }, [stopTimer]);
+  }, [stopTimer, initialCounters]);
 
   return {
     counter,

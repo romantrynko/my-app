@@ -11,10 +11,12 @@ import type { IWorkoutComponentProps } from './types';
 
 export default function WorkoutComponent({
   activeExercise,
+  timer,
+  resumeTimer,
   handlePrev,
   handleNext,
 }: IWorkoutComponentProps) {
-  const { photo, title, duration } = activeExercise;
+  const { variant, photo, title, duration } = activeExercise;
 
   return (
     <>
@@ -25,7 +27,7 @@ export default function WorkoutComponent({
         <Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={handlePrev}>
           <SkipPrevious />
         </Button>
-        <ProgressBar value={20} total={duration} />
+        <ProgressBar value={timer} total={duration} variant={variant} />
         <Button variant="outlined" sx={[styles.nextButton, styles.btn]} onClick={handleNext}>
           <SkipNext />
         </Button>
@@ -36,7 +38,7 @@ export default function WorkoutComponent({
       <Box sx={styles.footer}>
         <IconButton
           sx={styles.btnStart}
-          onClick={isPause ? resumeTimer : pauseTimer}
+          onClick={resumeTimer}
         >
           <PlayArrow />
         </IconButton>
