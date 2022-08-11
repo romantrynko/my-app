@@ -9,7 +9,11 @@ import { styles } from './styles';
 
 import type { IWorkoutComponentProps } from './types';
 
-export default function WorkoutComponent({ activeExercise }: IWorkoutComponentProps) {
+export default function WorkoutComponent({
+  activeExercise,
+  handlePrev,
+  handleNext,
+}: IWorkoutComponentProps) {
   const { photo, title, duration } = activeExercise;
 
   return (
@@ -18,11 +22,11 @@ export default function WorkoutComponent({ activeExercise }: IWorkoutComponentPr
         <Typography variant="subtitle1">{title}</Typography>
       </Box>
       <Box sx={styles.navBar}>
-        <Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={}>
+        <Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={handlePrev}>
           <SkipPrevious />
         </Button>
         <ProgressBar value={20} total={duration} />
-        <Button variant="outlined" sx={[styles.nextButton, styles.btn]}>
+        <Button variant="outlined" sx={[styles.nextButton, styles.btn]} onClick={handleNext}>
           <SkipNext />
         </Button>
       </Box>
