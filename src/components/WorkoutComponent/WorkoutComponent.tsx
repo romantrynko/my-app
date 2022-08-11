@@ -32,7 +32,6 @@ export default function WorkoutComponent({ activeExercise }: IWorkoutComponentPr
       <Box sx={styles.footer}>
         <IconButton
           sx={styles.btnStart}
-          variant="contained"
           // onClick={isPause ? resumeTimer : pauseTimer}
         >
           <PlayArrow />
