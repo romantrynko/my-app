@@ -1,10 +1,8 @@
 import { useCallback, useState, useRef, useEffect } from 'react';
 
-const useTimer = (initDuration?: number) => {
-  const initialCounters = initDuration ?? 0;
-  const [counter, setCounter] = useState(initialCounters);
-  
-  const initial = useRef(initialCounters);
+const useTimer = (cb?: () => void) => {
+  const [counter, setCounter] = useState(0);
+  const initial = useRef(0);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
   const [isPause, setIsPause] = useState(true);
   
@@ -12,9 +10,9 @@ const useTimer = (initDuration?: number) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    setCounter(initialCounters);
+    
     setIsPause(true);
-  }, [initialCounters]);
+  }, []);
   
   const startTimer = useCallback(
     (seconds = initial.current) => {
@@ -24,10 +22,11 @@ const useTimer = (initDuration?: number) => {
           setCounter(newCounter);          
         } else {
           stopTimer();
+          cb?.();
         }
       }, 1000);
     },
-    [stopTimer, initialCounters],
+    [cb, stopTimer],
   );
 
   const pauseTimer = useCallback(() => {
@@ -35,7 +34,7 @@ const useTimer = (initDuration?: number) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-  }, [initialCounters]);
+  }, []);
 
   const resumeTimer = useCallback(() => {
     startTimer();
@@ -43,27 +42,32 @@ const useTimer = (initDuration?: number) => {
   }, [startTimer]);
 
   const resetTimer = useCallback(() => {
-    if (intervalRef.current) {
-      stopTimer();
-    }
+    stopTimer();
     setCounter(initial.current);
-    startTimer(initial.current - 1);
-  }, [startTimer, stopTimer, initialCounters]);
+  }, [stopTimer]);
+
+  const initValue = useCallback((val: number) => {
+    stopTimer();
+    setCounter(val);
+    initial.current = val;
+
+    resumeTimer();
+  }, [resumeTimer, stopTimer]);
 
   useEffect(() => {
     return () => {
       stopTimer();
     };
-  }, [stopTimer, initialCounters]);
+  }, [resetTimer, stopTimer]);
 
   return {
     counter,
     isPause,
-    resetCounter: resetTimer,
+    resetTimer,
     stopTimer,
     pauseTimer,
     resumeTimer,
-    initialCounters,
+    initValue,
   };
 };
 

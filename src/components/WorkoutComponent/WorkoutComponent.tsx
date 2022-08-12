@@ -1,7 +1,8 @@
+import { useTimer } from '@/hooks';
 import { SkipNext, SkipPrevious, PlayArrow } from '@mui/icons-material';
 import { Box, Button, Typography, IconButton } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ProgressBar from '../ProgressBar/ProgressBar';
 
@@ -11,12 +12,16 @@ import type { IWorkoutComponentProps } from './types';
 
 export default function WorkoutComponent({
   activeExercise,
-  timer,
-  resumeTimer,
   handlePrev,
   handleNext,
 }: IWorkoutComponentProps) {
   const { variant, photo, title, duration } = activeExercise;
+
+  const { counter, resumeTimer, initValue } = useTimer(handleNext)
+  
+  useEffect(() => {
+    initValue(activeExercise.duration)
+  }, [initValue, activeExercise]);
 
   return (
     <>
@@ -27,7 +32,7 @@ export default function WorkoutComponent({
         <Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={handlePrev}>
           <SkipPrevious />
         </Button>
-        <ProgressBar value={timer} total={duration} variant={variant} />
+        <ProgressBar value={counter} total={duration} variant={variant} />
         <Button variant="outlined" sx={[styles.nextButton, styles.btn]} onClick={handleNext}>
           <SkipNext />
         </Button>
