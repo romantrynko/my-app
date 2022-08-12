@@ -17,6 +17,7 @@ export const styles = {
   }),
 
   progress: (color: 'red' | 'green') => ({
+    zIndex: 1,
     color: color === 'red' ? '#FF4081' : '#1DE9B6',
     width: {
       xs: 96,
@@ -27,4 +28,10 @@ export const styles = {
       md: 128,
     },
   }),
+
+  backCircular: {
+    position: 'absolute',
+    zIndex: 0,
+    color: '#EEEEEE',
+  },
 } as const;

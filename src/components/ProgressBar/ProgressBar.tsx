@@ -26,6 +26,12 @@ const ProgressBar = ({ value, variant = 'red', total, sx }: IProgressBarType) =>
         size={isDesktop ? 128 : 96}
       />
       <Typography sx={styles.label(variant)}>{computedValue}</Typography>
+      <CircularProgress
+        sx={styles.backCircular}
+        variant="determinate"
+        value={100}
+        size={isDesktop ? 128 : 96}
+      />
     </Box>
   );
 };
