@@ -4,7 +4,7 @@ const useTimer = (cb?: () => void) => {
   const [counter, setCounter] = useState(0);
   const initial = useRef(0);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
-  const [isPause, setIsPause] = useState(true);
+  const [isPause, setIsPause] = useState(true);  
   
   const stopTimer = useCallback(() => {
     if (intervalRef.current) {
@@ -34,7 +34,8 @@ const useTimer = (cb?: () => void) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-  }, []);
+    initial.current = counter;
+  }, [counter]);
 
   const resumeTimer = useCallback(() => {
     startTimer();

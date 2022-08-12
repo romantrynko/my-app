@@ -50,6 +50,7 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
     hasPrevBtn,
     hasNextBtn,
     activeExercise,
+    exercises,
   };
 };
 
