@@ -43,6 +43,7 @@ export const styles = {
   },
 
   picture: {
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -79,5 +80,9 @@ export const styles = {
     height: 53,
     width: 53,
     padding: '0 !important',
+    ':hover': {
+      background: 'purple',
+      boxShadow: '0px 16px 32px rgba(170, 0, 255, 0.34)',
+    },
   },
 } as const;

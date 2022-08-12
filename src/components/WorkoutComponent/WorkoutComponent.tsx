@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 
 import { useTimer } from '@/hooks';
 
+import Modal from '../Modal';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 import { styles } from './styles';
@@ -47,6 +48,7 @@ export default function WorkoutComponent({
       </Box>
       <Box sx={styles.picture}>
         <Image src={photo} alt="exercisePhoto" width={400} height={400} />
+        {isPause && <Modal />}
       </Box>
       {id !== 0 && (
         <Box sx={styles.footer}>
