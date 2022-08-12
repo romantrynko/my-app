@@ -67,6 +67,7 @@ export const styles = {
     color: 'white',
     height: 48,
     width: '100%',
+    textTransform: 'capitalize',
     mt: {
       xs: 2,
       md: 5,

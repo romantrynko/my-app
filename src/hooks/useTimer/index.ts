@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useCallback, useState, useRef, useEffect } from 'react';
 
 import type { IExcercise } from './../../types/index';
@@ -13,7 +14,7 @@ const useTimer = (cb?: () => void, exercises?: IExcercise[]) => {
       clearInterval(intervalRef.current);
     }
 
-    setIsPause(true);
+    // setIsPause(true);
   }, []);
 
   const startTimer = useCallback(
@@ -23,8 +24,8 @@ const useTimer = (cb?: () => void, exercises?: IExcercise[]) => {
         if (newCounter >= 0) {
           setCounter(newCounter);
         } else {
-          stopTimer();
           cb?.();
+          stopTimer();
         }
       }, 1000);
     },
