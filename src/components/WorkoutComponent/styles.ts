@@ -34,11 +34,14 @@ export const styles = {
     position: 'absolute',
     color: '#AA00FF',
     borderColor: '#AA00FF',
+    borderWidth: 2,
     height: 48,
     width: 74,
     ':hover': {
-      borderColor: 'red',
-      color: 'red',
+      borderColor: '#AA00FF',
+      background: '#AA00FF',
+      borderWidth: 2,
+      color: 'white',
     },
   },
 
