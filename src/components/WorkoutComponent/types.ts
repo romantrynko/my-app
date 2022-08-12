@@ -4,6 +4,6 @@ export interface IWorkoutComponentProps {
   activeExercise: IExcercise;
   handleNext: () => void;
   handlePrev: () => void;
-  timer: number;
-  resumeTimer: () => void;
+  hasNextBtn: boolean;
+  hasPrevBtn: boolean;
 }

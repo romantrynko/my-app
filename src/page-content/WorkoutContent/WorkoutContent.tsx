@@ -12,21 +12,16 @@ import type { IWorkoutContentProps } from './types';
 
 const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
   const {
-    counter,
-    isPause,
-    resetCounter: resetTimer,
-    stopTimer,
-    pauseTimer,
-    resumeTimer,
-    initialCounters,
     activeExercise,
     handleNext,
-    handlePrev
+    handlePrev,
+    hasNextBtn,
+    hasPrevBtn,
   } = useWorkoutContent({ workout });
 
   return (
     <Box sx={styles.root}>
-      <WorkoutComponent timer={counter} activeExercise={activeExercise} handleNext={handleNext} handlePrev={handlePrev} resumeTimer={resumeTimer} />
+      <WorkoutComponent hasNextBtn={hasNextBtn} hasPrevBtn={hasPrevBtn} activeExercise={activeExercise} handleNext={handleNext} handlePrev={handlePrev} />
     </Box>
   );
 };

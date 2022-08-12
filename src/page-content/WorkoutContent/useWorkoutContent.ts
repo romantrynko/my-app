@@ -39,11 +39,16 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
     }
   }, [index]);
 
+  const hasPrevBtn = useMemo(() => index > 0, [index])
+  const hasNextBtn = useMemo(() => index < exercises.length - 1, [exercises.length, index])
+
   const activeExercise = useMemo(() => exercises[index], [exercises, index]);
 
   return {
     handlePrev,
     handleNext,
+    hasPrevBtn,
+    hasNextBtn,
     activeExercise,
   };
 };
