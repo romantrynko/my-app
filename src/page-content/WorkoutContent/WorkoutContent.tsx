@@ -8,9 +8,10 @@ import useWorkoutContent from './useWorkoutContent';
 import type { IWorkoutContentProps } from './types';
 
 const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
-  const { activeExercise, handleNext, handlePrev, hasNextBtn, hasPrevBtn } = useWorkoutContent({
-    workout,
-  });
+  const { activeExercise, handleNext, handlePrev, hasNextBtn, hasPrevBtn, exercises } =
+    useWorkoutContent({
+      workout,
+    });
 
   return (
     <Box sx={styles.root}>
@@ -20,6 +21,7 @@ const WorkoutContent = ({ workout }: IWorkoutContentProps) => {
         activeExercise={activeExercise}
         handleNext={handleNext}
         handlePrev={handlePrev}
+        exercises={exercises}
       />
     </Box>
   );

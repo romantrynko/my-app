@@ -1,25 +1,27 @@
 import { useCallback, useState, useRef, useEffect } from 'react';
 
-const useTimer = (cb?: () => void) => {
+import type { IExcercise } from './../../types/index';
+
+const useTimer = (cb?: () => void, exercises?: IExcercise[]) => {
   const [counter, setCounter] = useState(0);
   const initial = useRef(0);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
-  const [isPause, setIsPause] = useState(true);  
-  
+  const [isPause, setIsPause] = useState(true);
+
   const stopTimer = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    
+
     setIsPause(true);
   }, []);
-  
+
   const startTimer = useCallback(
     (seconds = initial.current) => {
       intervalRef.current = setInterval(() => {
         const newCounter = --seconds;
         if (newCounter >= 0) {
-          setCounter(newCounter);          
+          setCounter(newCounter);
         } else {
           stopTimer();
           cb?.();
@@ -47,13 +49,16 @@ const useTimer = (cb?: () => void) => {
     setCounter(initial.current);
   }, [stopTimer]);
 
-  const initValue = useCallback((val: number) => {
-    stopTimer();
-    setCounter(val);
-    initial.current = val;
+  const initValue = useCallback(
+    (val: number) => {
+      stopTimer();
+      setCounter(val);
+      initial.current = val;
 
-    resumeTimer();
-  }, [resumeTimer, stopTimer]);
+      resumeTimer();
+    },
+    [resumeTimer, stopTimer],
+  );
 
   useEffect(() => {
     return () => {

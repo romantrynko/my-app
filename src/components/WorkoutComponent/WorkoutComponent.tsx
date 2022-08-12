@@ -17,10 +17,11 @@ export default function WorkoutComponent({
   handleNext,
   hasNextBtn,
   hasPrevBtn,
+  exercises,
 }: IWorkoutComponentProps) {
   const { id, variant, photo, title, duration } = activeExercise;
 
-  const { counter, resumeTimer, pauseTimer, initValue, isPause } = useTimer(handleNext);
+  const { counter, resumeTimer, pauseTimer, initValue, isPause } = useTimer(handleNext, exercises);
 
   useEffect(() => {
     initValue(activeExercise.duration);

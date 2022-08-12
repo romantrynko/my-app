@@ -6,4 +6,5 @@ export interface IWorkoutComponentProps {
   handlePrev: () => void;
   hasNextBtn: boolean;
   hasPrevBtn: boolean;
+  exercises: IExcercise[];
 }

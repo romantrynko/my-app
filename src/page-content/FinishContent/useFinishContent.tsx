@@ -10,7 +10,6 @@ const useFinishContent = ({ workout }: IFinishContentProps) => {
   }, 0);
 
   const totalMinutes = Math.floor((totalTime - 5) / 60);
-  console.log(totalMinutes);
 
   return { totalMinutes };
 };
