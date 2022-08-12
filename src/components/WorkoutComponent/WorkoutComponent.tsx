@@ -1,8 +1,9 @@
-import { useTimer } from '@/hooks';
 import { SkipNext, SkipPrevious, PlayArrow, Pause } from '@mui/icons-material';
 import { Box, Button, Typography, IconButton } from '@mui/material';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
+
+import { useTimer } from '@/hooks';
 
 import ProgressBar from '../ProgressBar/ProgressBar';
 
@@ -19,10 +20,10 @@ export default function WorkoutComponent({
 }: IWorkoutComponentProps) {
   const { id, variant, photo, title, duration } = activeExercise;
 
-  const { counter, resumeTimer, pauseTimer, initValue, isPause } = useTimer(handleNext)
+  const { counter, resumeTimer, pauseTimer, initValue, isPause } = useTimer(handleNext);
 
   useEffect(() => {
-    initValue(activeExercise.duration)
+    initValue(activeExercise.duration);
   }, [initValue, activeExercise]);
 
   return (
@@ -31,27 +32,28 @@ export default function WorkoutComponent({
         <Typography variant="subtitle1">{title}</Typography>
       </Box>
       <Box sx={styles.navBar}>
-        {hasPrevBtn && (<Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={handlePrev}>
-          <SkipPrevious />
-        </Button>)}
+        {hasPrevBtn && (
+          <Button variant="outlined" sx={[styles.prevButton, styles.btn]} onClick={handlePrev}>
+            <SkipPrevious />
+          </Button>
+        )}
         <ProgressBar value={counter} total={duration} variant={variant} />
-        {hasNextBtn && (<Button variant="outlined" sx={[styles.nextButton, styles.btn]} onClick={handleNext}>
-          <SkipNext />
-        </Button>)}
+        {hasNextBtn && (
+          <Button variant="outlined" sx={[styles.nextButton, styles.btn]} onClick={handleNext}>
+            <SkipNext />
+          </Button>
+        )}
       </Box>
       <Box sx={styles.picture}>
-        <Image src={photo} alt="exercisePhoto" width={800} height={474} />
+        <Image src={photo} alt="exercisePhoto" width={400} height={400} />
       </Box>
-      {
-        id !== 0 && <Box sx={styles.footer}>
-          <IconButton onClick={isPause ? resumeTimer : pauseTimer}
-            sx={styles.btnStart}
-          >
+      {id !== 0 && (
+        <Box sx={styles.footer}>
+          <IconButton onClick={isPause ? resumeTimer : pauseTimer} sx={styles.btnStart}>
             {isPause ? <PlayArrow /> : <Pause />}
           </IconButton>
         </Box>
-      }
-
+      )}
     </>
   );
 }

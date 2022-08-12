@@ -32,26 +32,32 @@ export const styles = {
 
   btn: {
     position: 'absolute',
-    color: 'purple',
-    borderColor: 'purple',
+    color: '#AA00FF',
+    borderColor: '#AA00FF',
     height: 48,
     width: 74,
     ':hover': {
       borderColor: 'red',
-          color: 'red',
-    }
+      color: 'red',
+    },
   },
 
   picture: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: {
       xs: 375,
       md: 800,
     },
     height: {
-      xs: 375,
-      md: 800,
+      xs: 211,
+      md: 450,
     },
     mt: 4,
+    borderRadius: 2,
+    overflow: 'hidden',
+    boxShadow: '0px 5px 21px -6px rgba(0,0,0,0.24)',
   },
 
   footer: {
@@ -72,6 +78,6 @@ export const styles = {
     borderRadius: '50%',
     height: 53,
     width: 53,
-    padding: '0 !important'
+    padding: '0 !important',
   },
 } as const;

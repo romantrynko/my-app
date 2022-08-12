@@ -6,12 +6,12 @@ export const styles = {
     alignItems: 'center',
     mt: {
       xs: 9.2,
-      md: 15.5
+      md: 15.5,
     },
     width: {
       xs: 343,
-      md: 800
-    }
+      md: 800,
+    },
   },
 
   check: {
@@ -39,7 +39,7 @@ export const styles = {
     },
     mt: {
       xs: 2,
-      md: 0
+      md: 0,
     },
     fontWeight: 400,
   },
@@ -47,19 +47,19 @@ export const styles = {
   minutes: {
     mt: {
       xs: 5.5,
-      md: 4
+      md: 4,
     },
     fontSize: 14,
-    fontWeight: 400
+    fontWeight: 400,
   },
 
   totalTime: {
     fontSize: {
       xs: 28,
-      md: 40
+      md: 40,
     },
     fontWeight: 600,
-    mt: 0.5
+    mt: 0.5,
   },
 
   btn: {
@@ -69,11 +69,12 @@ export const styles = {
     width: '100%',
     mt: {
       xs: 2,
-      md: 5
+      md: 5,
     },
     boxShadow: '0px 16px 32px rgba(170, 0, 255, 0.24)',
     ':hover': {
-      background: 'green'
-    }
+      background: 'purple',
+      boxShadow: '0px 16px 32px rgba(170, 0, 255, 0.34)',
+    },
   },
 } as const;

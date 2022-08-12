@@ -1,3 +1,3 @@
 export interface IFinishComponentProps {
-  totalTime: number
+  totalTime: number;
 }

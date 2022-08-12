@@ -11,6 +11,8 @@ export const styles = {
     maxWidth: {
       md: '800px',
     },
+    pb: 10,
+    pt: 5,
   },
 
   btn: {
@@ -26,10 +28,10 @@ export const styles = {
     p: 1,
     width: {
       md: 800,
-      xs: 'calc(100% - 32px)',
+      xs: 343,
     },
     ':hover': {
-      background: 'violet',
+      background: 'purple',
       boxShadow: '0px 16px 32px rgba(170, 0, 255, 0.34)',
     },
   },

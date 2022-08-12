@@ -1,6 +1,7 @@
 export const styles = {
   root: {
     display: 'flex',
+    alignItems: 'center',
     flexGrow: 1,
     flexDirection: 'column',
     width: '100%',
@@ -20,6 +21,10 @@ export const styles = {
     m: 0,
     p: 0,
     listStyle: 'none',
+    width: {
+      xs: 343,
+      md: 800,
+    },
   },
 
   listItem: {

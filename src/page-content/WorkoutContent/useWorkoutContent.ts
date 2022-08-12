@@ -33,9 +33,9 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
     if (index < exercises.length - 1) {
       setIndex(index + 1);
     } else {
-      router.push('finish')
+      router.push('finish');
     }
-  }, [exercises.length, index]);
+  }, [exercises.length, index, router]);
 
   const handlePrev = useCallback(() => {
     if (index > 1) {
@@ -43,8 +43,8 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
     }
   }, [index]);
 
-  const hasPrevBtn = useMemo(() => index > 0, [index])
-  const hasNextBtn = useMemo(() => index < exercises.length - 1, [exercises.length, index])
+  const hasPrevBtn = useMemo(() => index > 0, [index]);
+  const hasNextBtn = useMemo(() => index < exercises.length - 1, [exercises.length, index]);
 
   const activeExercise = useMemo(() => exercises[index], [exercises, index]);
 
