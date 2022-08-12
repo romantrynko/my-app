@@ -2,18 +2,15 @@ import { Box } from '@mui/material';
 import { styles } from './styles';
 
 import FinishComponent from '@/components/FinishComponent';
-import useWorkoutContent from '../WorkoutContent/useWorkoutContent';
 import type { IFinishContentProps } from './types';
+import useFinishContent from './useFinishContent';
 
 const FinishContent = ({ workout }: IFinishContentProps) => {
-  const { exercises } = useWorkoutContent({ workout });
-
-  console.log(exercises[0].duration);
-
+  const { totalMinutes } = useFinishContent({ workout });
 
   return (
     <Box sx={styles.root}>
-      <FinishComponent totalTime={exercises[1].duration} />
+      <FinishComponent totalTime={totalMinutes} />
     </Box>
   );
 };

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useMemo, useState, useCallback } from 'react';
 
 import type { IExcercise, IQuestion } from '../../types/index';
@@ -15,6 +16,7 @@ const firstStep = {
 
 const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
   const [index, setIndex] = useState(0);
+  const router = useRouter();
 
   const exercises = useMemo(
     () =>
@@ -30,6 +32,8 @@ const useWorkoutContent = ({ workout }: IWorkoutContentProps) => {
   const handleNext = useCallback(() => {
     if (index < exercises.length - 1) {
       setIndex(index + 1);
+    } else {
+      router.push('finish')
     }
   }, [exercises.length, index]);
 
