@@ -7,7 +7,7 @@ import { styles } from './styles';
 
 import type { IProgressBarType } from './types';
 
-const ProgressBar = ({ value, variant = 'red', total, sx }: IProgressBarType) => {
+const ProgressBar = ({ value, variant = 'red', total }: IProgressBarType) => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const computedValue = useMemo(() => {
