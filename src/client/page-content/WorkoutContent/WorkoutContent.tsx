@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-import WorkoutComponent from '@/components/WorkoutComponent';
+import WorkoutComponent from '@/client/components/WorkoutComponent';
 
 import { styles } from './styles';
 import useWorkoutContent from './useWorkoutContent';

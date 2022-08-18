@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 
-import { theme } from '@/constants';
+import { theme } from '@/client/constants';
 
 import type { AppProps } from 'next/app';
 

@@ -3,7 +3,7 @@ import { Box, Button, Typography, IconButton } from '@mui/material';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 
-import { useTimer } from '@/hooks';
+import { useTimer } from '@/client/hooks';
 
 import Modal from '../Modal';
 import ProgressBar from '../ProgressBar/ProgressBar';

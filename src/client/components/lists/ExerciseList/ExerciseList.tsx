@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-import { ExerciseCard } from '@/components';
+import { ExerciseCard } from '@/client/components';
 
 import styles from './styles';
 

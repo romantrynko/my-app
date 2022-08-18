@@ -1,4 +1,4 @@
-import { client } from '@/utils';
+import { client } from '@/client/utils';
 
 const get = () => client.get('/quizzes/workouts').then(({ data }) => data.data);
 

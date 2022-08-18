@@ -1,7 +1,7 @@
-import FinishContent from '@/page-content/FinishContent';
-import { workoutsService } from '@/services';
+import FinishContent from '@/client/page-content/FinishContent';
+import { workoutsService } from '@/client/services';
 
-import type { IFinishContentProps } from '@/page-content/FinishContent/types';
+import type { IFinishContentProps } from '@/client/page-content/FinishContent/types';
 
 const Finish = ({ workout }: IFinishContentProps) => {
   return <FinishContent workout={workout} />;

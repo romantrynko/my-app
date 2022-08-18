@@ -1,7 +1,7 @@
-import { HomeContent } from '@/page-content';
-import { workoutsService } from '@/services';
+import { HomeContent } from '@/client/page-content';
+import { workoutsService } from '@/client/services';
 
-import type { IHomeProps } from '@/page-content/Home/types';
+import type { IHomeProps } from '@/client/page-content/Home/types';
 
 const Home = ({ workout }: IHomeProps) => {
   return <HomeContent workout={workout} />;

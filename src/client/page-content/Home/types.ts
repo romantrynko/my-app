@@ -1,4 +1,4 @@
-import type { IWorkout } from '@/types';
+import type { IWorkout } from '@/client/types';
 
 export interface IHomeProps {
   workout: IWorkout;

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-import FinishComponent from '@/components/FinishComponent';
+import FinishComponent from '@/client/components/FinishComponent';
 
 import { styles } from './styles';
 import useFinishContent from './useFinishContent';

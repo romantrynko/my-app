@@ -1,7 +1,7 @@
-import { WorkoutContent } from '@/page-content';
-import { workoutsService } from '@/services';
+import { WorkoutContent } from '@/client/page-content';
+import { workoutsService } from '@/client/services';
 
-import type { IWorkoutContentProps } from '@/page-content/WorkoutContent/types';
+import type { IWorkoutContentProps } from '@/client/page-content/WorkoutContent/types';
 
 const Workout = ({ workout }: IWorkoutContentProps) => {
   return <WorkoutContent workout={workout} />;

@@ -1,8 +1,8 @@
 import { Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
-import { HeroCard } from '@/components';
-import ExerciseList from '@/components/lists/ExerciseList';
+import { HeroCard } from '@/client/components';
+import ExerciseList from '@/client/components/lists/ExerciseList';
 
 import styles from './styles';
 

@@ -1,7 +1,7 @@
 import { CircularProgress, Typography, Box, useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 
-import { theme } from '@/constants';
+import { theme } from '@/client/constants';
 
 import { styles } from './styles';
 
