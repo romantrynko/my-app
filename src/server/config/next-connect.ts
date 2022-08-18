@@ -1,3 +1,5 @@
+import { ValidationError } from 'yup';
+
 import { ClientError } from '../services/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -8,6 +10,12 @@ const nextConnectConfig: Options<NextApiRequest, NextApiResponse> = {
     if (err instanceof ClientError) {
       return res.status(err.status).end(err.message);
     }
+
+    if (err instanceof ValidationError) {
+      return res.status(400).json({ errors: err.errors });
+    }
+
+    console.log(ValidationError);
     res.status(500).end('Something broke!');
   },
   onNoMatch: (req: NextApiRequest, res: NextApiResponse) => {
