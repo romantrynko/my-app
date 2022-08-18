@@ -5,7 +5,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { body } = req;
-  console.log({ body: body?.username, password: body?.password });
+
+  if (req.method !== 'POST') {
+    return res.status(405).json('Wrong method');
+  }
 
   try {
     const user = authService.login(body.username, body.password);
