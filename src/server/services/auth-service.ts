@@ -1,12 +1,12 @@
 import { users } from '@/server/constants';
 
-import { authError } from './exceptions';
+import { ClientError } from './exceptions';
 
 const login = (username: string, password: string) => {
   const user = users.find((item) => item.username === username && item.password === password);
 
   if (!user) {
-    throw new authError('Invalid username or password');
+    throw new ClientError('Invalid username or password');
   }
 
   return user;
