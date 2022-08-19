@@ -6,7 +6,7 @@ import styles from './styles';
 
 const LoginContent = () => (
   <Box sx={styles.root}>
-    <Card sx={styles.card}>
+    <Card>
       <CardContent>
         <Typography sx={styles.title}>Login</Typography>
         <LoginForm />

@@ -1,9 +1,13 @@
 export const styles = {
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-    background: 'gray',
-    color: 'white',
-    width: '100%',
+  btn: {
+    color: '#3383c4',
+    border: '2px solid #3383c4',
+    textTransform: 'capitalize',
+    width: 200,
+    ':hover': {
+      border: '2px solid #3383c4',
+      background: '#3383c4',
+      color: 'white',
+    },
   },
 } as const;

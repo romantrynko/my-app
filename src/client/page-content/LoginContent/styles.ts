@@ -6,28 +6,17 @@ export const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    border: '1px solid gray',
-    mx: {
-      md: 'auto',
-    },
-    maxWidth: {
-      md: '800px',
-    },
-    height: '50vh',
-    pb: 10,
-    pt: 5,
-  },
-
-  card: {
-    width: '100%',
-    maxWidth: {
-      md: 500,
-    },
+    mx: 'auto',
+    width: '80%',
+    height: '100vh',
   },
 
   title: {
     textAlign: 'center',
+    color: 'gray',
+    fontWeight: 800,
     fontSize: 24,
+    mb: 2,
   },
 };
 
