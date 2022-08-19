@@ -1,3 +1,13 @@
+export enum AuthAccessLevel {
+  Public,
+  Authorized,
+  Unauthorized,
+}
+
+export interface IAuthInitialProps {
+  accessLevel: AuthAccessLevel;
+}
+
 export interface IExcercise {
   id: number;
   title: string;
