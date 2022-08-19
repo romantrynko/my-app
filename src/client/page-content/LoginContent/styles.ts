@@ -13,7 +13,7 @@ export const styles = {
 
   title: {
     textAlign: 'center',
-    color: 'gray',
+    color: 'lightgray',
     fontWeight: 800,
     fontSize: 24,
     mb: 2,

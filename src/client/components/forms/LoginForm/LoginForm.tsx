@@ -1,4 +1,4 @@
-import { Box, Button, Grid, TextField } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import { Formik, Form } from 'formik';
 
 import { loginSchema } from './schema';
@@ -10,8 +10,8 @@ const LoginForm = () => {
 
   return (
     <Formik
-      initialValues={{ username: '', password: '' }}
-      onSubmit={(values) => console.log(values)}
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
       validateOnBlur
       validationSchema={loginSchema}
     >
