@@ -1,4 +1,4 @@
-import type { IExcercise } from '@/types';
+import type { IExcercise } from '@/client/types';
 
 export interface IWorkoutComponentProps {
   activeExercise: IExcercise;

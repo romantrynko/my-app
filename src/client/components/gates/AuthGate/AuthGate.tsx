@@ -1,23 +1,20 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { AuthAccessLevel } from '@/client/types';
-import { createLocalStorage } from '@/client/utils/storage';
+
+import UserContext from './AuthGateContext';
 
 import type { IAuthInitialProps } from '@/client/types';
 import type { PropsWithChildren } from 'react';
 
 const AuthGate = ({ children, auth }: PropsWithChildren<{ auth: IAuthInitialProps }>) => {
-  const user = createLocalStorage().getItem('user');
+  const user = useContext(UserContext);
   const router = useRouter();
 
-  useEffect(() => {
-    if (auth?.accessLevel === AuthAccessLevel.Unauthorized) {
-      if (!user) {
-        router.push('/login');
-      }
-    }
+  console.log(auth?.accessLevel, user);
 
+  useEffect(() => {
     if (auth?.accessLevel === AuthAccessLevel.Authorized) {
       if (!user) {
         router.push('/login');
@@ -29,7 +26,7 @@ const AuthGate = ({ children, auth }: PropsWithChildren<{ auth: IAuthInitialProp
         router.push('/');
       }
     }
-  }, [auth?.accessLevel, router, user]);
+  }, [auth, router, user]);
 
   return <>{children}</>;
 };

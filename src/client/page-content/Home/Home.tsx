@@ -7,18 +7,22 @@ import ExerciseList from '@/client/components/lists/ExerciseList';
 import { createLocalStorage } from '@/client/utils/storage';
 
 import styles from './styles';
+import useUser from './useUser';
 
 import type { IHomeProps } from './types';
 import type { IUserResponse } from '@/server/types';
 
 const Home = ({ workout }: IHomeProps) => {
   const router = useRouter();
+  const { removeUser } = useUser();
+
   const { questions } = workout;
 
   const handleLogout = useCallback(() => {
+    removeUser();
     createLocalStorage().removeItem('user');
     router.push('/login');
-  }, [router]);
+  }, [removeUser, router]);
 
   const user: IUserResponse = useMemo(() => createLocalStorage().getItem('user'), []) || 'Username';
 

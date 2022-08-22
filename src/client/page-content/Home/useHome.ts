@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { workoutsService } from '@/services';
+import { workoutsService } from '@/client/services';
 
-import type { IQuestion } from '@/types';
+import type { IQuestion } from '@/client/types';
 
 const useHome = () => {
   const [questions, setQuestions] = useState<IQuestion[]>();
