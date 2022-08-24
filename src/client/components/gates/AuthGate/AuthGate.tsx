@@ -9,10 +9,10 @@ import type { IAuthInitialProps } from '@/client/types';
 import type { PropsWithChildren } from 'react';
 
 const AuthGate = ({ children, auth }: PropsWithChildren<{ auth: IAuthInitialProps }>) => {
-  const user = useContext(UserContext);
+  const [user] = useContext(UserContext);
   const router = useRouter();
 
-  console.log(auth?.accessLevel, user);
+  console.log('authGate', auth?.accessLevel, user);
 
   useEffect(() => {
     if (auth?.accessLevel === AuthAccessLevel.Authorized) {

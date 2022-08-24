@@ -1,6 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 
 import { authService } from '@/client/services';
+
+import UserContext from '../../gates/AuthGate/AuthGateContext';
 
 import { createLocalStorage } from './../../../utils/storage/index';
 
@@ -12,11 +14,14 @@ const useLoginForm = () => {
     password: '',
   };
 
+  const [, setUser] = useContext(UserContext);
+
   const handleSubmit = useCallback(
     (values: typeof initialValues, helper: FormikHelpers<typeof initialValues>) => {
       authService
         .login(values)
         .then((data) => {
+          setUser(data);
           createLocalStorage().setItem('user', data);
         })
         .catch(({ response }) => {
@@ -26,7 +31,7 @@ const useLoginForm = () => {
         })
         .finally(() => helper.setSubmitting(false));
     },
-    [],
+    [setUser],
   );
 
   return { initialValues, handleSubmit };

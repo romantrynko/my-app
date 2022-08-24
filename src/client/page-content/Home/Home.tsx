@@ -1,8 +1,9 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useContext, useEffect, useMemo } from 'react';
 
 import { HeroCard } from '@/client/components';
+import UserContext from '@/client/components/gates/AuthGate/AuthGateContext';
 import ExerciseList from '@/client/components/lists/ExerciseList';
 import { createLocalStorage } from '@/client/utils/storage';
 
@@ -24,12 +25,12 @@ const Home = ({ workout }: IHomeProps) => {
     router.push('/login');
   }, [removeUser, router]);
 
-  const user: IUserResponse = useMemo(() => createLocalStorage().getItem('user'), []) || 'Username';
+  const [user] = useContext(UserContext);
 
   return (
     <Box component="main" sx={styles.root}>
       <Box sx={styles.header}>
-        <Typography sx={styles.userName}>{user.username}</Typography>
+        {user && <Typography sx={styles.userName}>{user?.username}</Typography>}
         <Button variant="contained" onClick={handleLogout} sx={styles.logoutBtn}>
           Logout
         </Button>

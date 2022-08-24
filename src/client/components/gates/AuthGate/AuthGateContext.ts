@@ -2,6 +2,8 @@ import { createContext } from 'react';
 
 import type { IUserResponse } from '@/server/types';
 
-const UserContext = createContext<IUserResponse | null>(null);
+export const initialContext = [null, (user: IUserResponse) => user];
+
+const UserContext = createContext(initialContext);
 
 export default UserContext;
