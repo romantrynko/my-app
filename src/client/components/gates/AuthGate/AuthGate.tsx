@@ -9,7 +9,7 @@ import type { IAuthInitialProps } from '@/client/types';
 import type { PropsWithChildren } from 'react';
 
 const AuthGate = ({ children, auth }: PropsWithChildren<{ auth: IAuthInitialProps }>) => {
-  const [user] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
   const router = useRouter();
 
   console.log('authGate', auth?.accessLevel, user);

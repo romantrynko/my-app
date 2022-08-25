@@ -11,7 +11,6 @@ import styles from './styles';
 import useUser from './useUser';
 
 import type { IHomeProps } from './types';
-import type { IUserResponse } from '@/server/types';
 
 const Home = ({ workout }: IHomeProps) => {
   const router = useRouter();

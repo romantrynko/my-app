@@ -6,10 +6,11 @@ import AuthGate from '@/client/components/gates/AuthGate';
 import UserContext, { initialContext } from '@/client/components/gates/AuthGate/AuthGateContext';
 import { theme } from '@/client/constants';
 
+import type { IUserResponse } from '@/server/types';
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps: { auth, ...restPageProps } }: AppProps) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<IUserResponse>(null);
 
   return (
     <ThemeProvider theme={theme}>

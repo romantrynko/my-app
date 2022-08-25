@@ -6,7 +6,10 @@ type ILoginRequest = {
 };
 
 const login = (params: ILoginRequest) =>
-  apiClient.post('/auth/login', params).then(({ data }) => data);
+  apiClient.post('/auth/login', params).then(({ data }) => {
+    console.log('data from apiClient.post', data);
+    return data;
+  });
 
 const authService = { login };
 
